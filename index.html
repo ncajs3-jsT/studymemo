@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학습 게시판</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="학습 게시판 홈">
+        <span class="brand-mark">L</span>
+        <span>학습 게시판</span>
+      </a>
+      <button class="write-button" id="openWriteButton" type="button">글쓰기</button>
+    </header>
+
+    <section class="board">
+      <div class="board-heading">
+        <div>
+          <p class="eyebrow">STUDY BOARD</p>
+          <h1>오늘 배운 내용을 기록해요</h1>
+        </div>
+        <label class="search-box" for="searchInput">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="제목, 내용 검색">
+        </label>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>작성일</th>
+            </tr>
+          </thead>
+          <tbody id="postList"></tbody>
+        </table>
+        <p class="empty-state" id="emptyState" hidden>아직 작성된 글이 없습니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="post-dialog" id="postDialog">
+    <form method="dialog" id="postForm">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow" id="dialogEyebrow">NEW POST</p>
+          <h2 id="dialogTitle">새 글 작성</h2>
+        </div>
+        <button class="icon-button" id="closeDialogButton" type="button" aria-label="닫기">×</button>
+      </div>
+
+      <input id="postId" type="hidden">
+      <label>
+        제목
+        <input id="postTitle" type="text" maxlength="80" required placeholder="배운 내용을 한 줄로 정리해요">
+      </label>
+      <label>
+        작성자
+        <input id="postAuthor" type="text" maxlength="20" required placeholder="이름">
+      </label>
+      <label>
+        내용
+        <textarea id="postContent" rows="8" maxlength="2000" required placeholder="오늘 배운 내용, 질문, 메모를 남겨주세요"></textarea>
+      </label>
+
+      <div class="dialog-actions">
+        <button class="secondary-button" id="cancelButton" type="button">취소</button>
+        <button class="primary-button" type="submit">등록하기</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
